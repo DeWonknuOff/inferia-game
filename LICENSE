@@ -1,21 +1,111 @@
-MIT License
+Copyright (c) 2025 Inferia Inc. All rights reserved.
 
-Copyright (c) 2025 DEWONIC
+This proprietary license governs the use, access, and handling of the software contained in this repository, including but not limited to the source code, binaries, scripts, assets, configuration files, documentation, and any associated intellectual property (hereinafter referred to collectively as the "Software"). The Software is the sole and exclusive property of Inferia Inc.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+By accessing, downloading, storing, copying, displaying, referencing, or otherwise interacting with this Software in any manner, you agree to be fully bound by the terms and conditions described herein. If you do not agree with any provision of this license, you must immediately cease all use of the Software and destroy any copies in your possession.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+---
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+### 1. No Modification
+
+You **must not**, under any circumstance, alter, modify, adapt, translate, reverse engineer, decompile, disassemble, or create derivative works based on any part of the Software. This prohibition includes but is not limited to:
+
+- Changing variable or function names
+- Removing or altering copyright notices
+- Injecting custom logic
+- Translating the code to another programming language
+- Porting the Software to a different platform or framework
+- Using parts of the Software as templates for other projects
+
+All such activities are strictly forbidden without explicit, prior, written permission from Inferia Inc.
+
+---
+
+### 2. No Redistribution or Resale
+
+You **must not** distribute, share, publish, transmit, sell, lease, license, sublicense, or otherwise transfer the Software, either in whole or in part, whether modified or unmodified, to any third party for any purpose, including but not limited to:
+
+- Commercial resale
+- Free or paid inclusion in third-party packages or platforms
+- Upload to any public or private code repository
+- Use in educational settings or workshops
+- Demonstration to clients or students
+
+Redistribution in any form is prohibited unless express written consent is obtained from authorized legal representatives of Inferia Inc.
+
+---
+
+### 3. No Claim of Ownership or Credit
+
+You **must not**, under any circumstance, claim authorship, co-authorship, or creative contribution to the Software or any part thereof. This includes:
+
+- Presenting the Software as your original work
+- Including the Software in your personal, academic, or professional portfolio
+- Publishing the Software or portions thereof under your name or pseudonym
+- Removing or modifying copyright, author, or version information
+
+Misrepresentation of ownership will be treated as a direct violation of this license and may constitute fraud and intellectual property theft under applicable law.
+
+---
+
+### 4. Limited and Restricted Use
+
+Unless otherwise explicitly stated in a separate agreement signed by both parties, you are only permitted to:
+
+- View the Software for personal, private inspection
+- Use the Software solely for the purpose of evaluating its design or concept
+
+You **must not** execute, deploy, integrate, compile, install, or otherwise utilize the Software in any production, staging, testing, or development environment. Any use beyond passive inspection constitutes a breach of this license.
+
+---
+
+### 5. Ownership and Intellectual Property
+
+All rights, title, and interest in and to the Software—including all related intellectual property rights such as copyrights, trade secrets, patents (if any), design rights, database rights, and trademarks—are and shall remain the exclusive property of Inferia Inc.
+
+You acknowledge that you acquire no ownership rights whatsoever by accessing or using the Software. Any unauthorized attempt to claim ownership or authorship, in whole or in part, will be met with swift legal action.
+
+---
+
+### 6. Disclaimer of Warranty
+
+The Software is provided “as is,” without any warranty of any kind, either express or implied. Inferia Inc. makes no representations or warranties regarding the accuracy, reliability, completeness, or fitness of the Software for any particular purpose.
+
+You assume full responsibility and risk for your use of the Software. Inferia Inc. shall not be liable for any damages, losses, data corruption, or interruptions in service resulting from your use or misuse of the Software.
+
+---
+
+### 7. Enforcement and Termination
+
+Any violation of this license shall result in the **immediate and automatic termination** of any rights you may have previously had to access or use the Software. Upon termination, you must:
+
+- Immediately delete all copies of the Software in your possession
+- Cease all activities involving the Software
+- Remove any derived work or content referencing the Software
+
+Inferia Inc. reserves the right to pursue all available legal remedies—including injunctive relief, financial compensation, and recovery of legal fees—in the event of a breach of this license.
+
+---
+
+### 8. Jurisdiction and Governing Law
+
+This license shall be governed by and interpreted in accordance with the laws of the jurisdiction in which Inferia Inc. is incorporated. You agree to submit to the exclusive jurisdiction of the courts located in that jurisdiction for the resolution of any disputes arising under this license.
+
+---
+
+### 9. Contact and Licensing Requests
+
+For inquiries, clarifications, or licensing requests, please contact:
+
+**Inferia Inc. Legal Department**  
+📧 dewonknu@gmail.com
+
+Only written, signed authorization from a legal representative of Inferia Inc. shall be deemed valid for granting exceptions or rights not included herein.
+
+---
+
+### Final Notice
+
+If you are reading this license as a user, developer, contractor, collaborator, or viewer, you **must** comply with every clause herein. Failure to do so constitutes a breach of civil obligations and may invoke criminal liability in jurisdictions where intellectual property rights are protected.
+
+No right is granted that is not explicitly written. Silence on a right does **not** imply permission.
