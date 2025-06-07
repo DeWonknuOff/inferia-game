@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnwxb1t30jd3j"]
+
+[ext_resource type="Script" uid="uid://yiy1fus51ts6" path="res://scenes/objects/player_1.gd" id="1_31fnk"]
+[ext_resource type="PackedScene" uid="uid://ckbgtvuhxuw3g" path="res://scenes/objects/fireparticle.tscn" id="2_8kj2m"]
+[ext_resource type="Texture2D" uid="uid://veaca62ogdj2" path="res://sprites/objects/ship.png" id="3_8kj2m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8kj2m"]
+radius = 22.0227
+
+[node name="player1" type="Node2D"]
+script = ExtResource("1_31fnk")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(1, 1.13687e-13)
+scale = Vector2(2.79433, 3.46255)
+texture = ExtResource("3_8kj2m")
+
+[node name="particle" parent="CharacterBody2D/Sprite2D" instance=ExtResource("2_8kj2m")]
+position = Vector2(-6.4257, 6.03232)
+scale = Vector2(0.356983, 0.287253)
+
+[node name="particle2" parent="CharacterBody2D/Sprite2D" instance=ExtResource("2_8kj2m")]
+position = Vector2(5.35475, 6.03232)
+scale = Vector2(0.356983, 0.287253)
+
+[node name="fire1" type="Node2D" parent="CharacterBody2D/Sprite2D"]
+position = Vector2(7.13967, -4.02154)
+scale = Vector2(0.356983, 0.287253)
+
+[node name="fire0" type="Node2D" parent="CharacterBody2D/Sprite2D"]
+position = Vector2(-8.21062, -4.3088)
+scale = Vector2(0.356983, 0.287253)
+
+[node name="jitbocs" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="jitbacsp1" type="CollisionShape2D" parent="CharacterBody2D/jitbocs"]
+shape = SubResource("CircleShape2D_8kj2m")
+
+[connection signal="area_entered" from="CharacterBody2D/jitbocs" to="." method="_on_jitbocs_area_entered"]

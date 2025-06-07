@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb3ibawj2cor8"]
+
+[ext_resource type="Script" uid="uid://i4eqotoprfwn" path="res://scenes/objects/greenbullet.gd" id="1_2y4rk"]
+[ext_resource type="Texture2D" uid="uid://cjrr6vjoteu8u" path="res://sprites/objects/greenbullet.png" id="1_yi2v6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y4rk"]
+atlas = ExtResource("1_yi2v6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlw5k"]
+atlas = ExtResource("1_yi2v6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0p32q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y4rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlw5k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yi2v6"]
+radius = 5.09902
+
+[node name="greenbullet" type="Node2D"]
+rotation = 3.14159
+script = ExtResource("1_2y4rk")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(8.74228e-08, 1)
+scale = Vector2(1.6121, 1.6121)
+sprite_frames = SubResource("SpriteFrames_0p32q")
+autoplay = "default"
+frame_progress = 0.108946
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_yi2v6")

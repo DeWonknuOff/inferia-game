@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgvkauhv4e6je"]
+
+[ext_resource type="Script" uid="uid://x7s20i2b72rb" path="res://scenes/objects/redbeam.gd" id="1_j8jxr"]
+[ext_resource type="Texture2D" uid="uid://b1dvrqocn6348" path="res://sprites/effects/red (2).png" id="4_fwu46"]
+[ext_resource type="Texture2D" uid="uid://b14ohhtueti5t" path="res://sprites/effects/red (1).png" id="5_5wuf1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eddg4"]
+atlas = ExtResource("4_fwu46")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8jxr"]
+atlas = ExtResource("4_fwu46")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fwu46"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eddg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8jxr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um7l6"]
+size = Vector2(8, 457)
+
+[node name="greenbeam" type="Node2D"]
+rotation = 3.14159
+scale = Vector2(2.0981, 2.0981)
+script = ExtResource("1_j8jxr")
+
+[node name="head" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.111594, -5.60788)
+scale = Vector2(2.25, 2.25)
+sprite_frames = SubResource("SpriteFrames_fwu46")
+autoplay = "default"
+
+[node name="redlaser" type="Sprite2D" parent="."]
+position = Vector2(0.111594, -602.607)
+scale = Vector2(2.244, 73.774)
+texture = ExtResource("5_5wuf1")
+
+[node name="beamarea" type="Area2D" parent="."]
+position = Vector2(0.111594, -5.60788)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="beamarea"]
+position = Vector2(0, -1055)
+scale = Vector2(1, 4.56)
+shape = SubResource("RectangleShape2D_um7l6")

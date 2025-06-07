@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://cakag7lwab458"]
+
+[ext_resource type="FontFile" uid="uid://dt32qtg1erj6q" path="res://fonts/perfectdos.ttf" id="1_ilt2w"]
+[ext_resource type="Script" uid="uid://kfil7p1l6bx4" path="res://scripts/menu/endscene.gd" id="1_r8m18"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilt2w"]
+bg_color = Color(0.0434, 0.06272, 0.14, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8m18"]
+bg_color = Color(0.0434, 0.06272, 0.14, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="endscene" type="Node2D"]
+script = ExtResource("1_r8m18")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 306.0
+offset_top = 256.0
+offset_right = 414.0
+offset_bottom = 279.0
+scale = Vector2(5.57389, 5.57389)
+theme_override_fonts/font = ExtResource("1_ilt2w")
+text = "Has PERDIDO!"
+
+[node name="button" type="Button" parent="."]
+offset_left = 438.0
+offset_top = 360.0
+offset_right = 674.0
+offset_bottom = 391.0
+theme_override_fonts/font = ExtResource("1_ilt2w")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_ilt2w")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ilt2w")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ilt2w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r8m18")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ilt2w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ilt2w")
+text = " VOLVER A MENU"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 484.0
+offset_top = 410.0
+offset_right = 583.0
+offset_bottom = 433.0
+scale = Vector2(1.72518, 1.72518)
+theme_override_fonts/font = ExtResource("1_ilt2w")
+text = "Puntaje: %s"
+
+[connection signal="pressed" from="button" to="." method="_on_button_pressed"]

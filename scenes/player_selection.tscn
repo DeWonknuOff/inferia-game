@@ -1,0 +1,196 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmvxp70aqw7et"]
+
+[ext_resource type="Script" uid="uid://d0ku4ei6ls7ty" path="res://scripts/menu/player_selection.gd" id="1_f3c7r"]
+[ext_resource type="Texture2D" uid="uid://dqlq3j32hlvn1" path="res://sprites/ui/closed_character_card.png" id="1_s2qvr"]
+[ext_resource type="FontFile" uid="uid://dt32qtg1erj6q" path="res://fonts/perfectdos.ttf" id="1_v3p8n"]
+[ext_resource type="StyleBox" uid="uid://b2fw671hpf0e" path="res://styles/invisible_style.tres" id="3_jcrle"]
+[ext_resource type="Texture2D" uid="uid://ddj7t6b1k5d7j" path="res://sprites/ui/astronaut001.png" id="5_bm3xa"]
+[ext_resource type="AudioStream" uid="uid://co0oe6lc2lp0l" path="res://sounds/back.ogg" id="5_qhdkc"]
+[ext_resource type="AudioStream" uid="uid://d3ani1brimowv" path="res://sounds/error_007.ogg" id="6_6vnrq"]
+[ext_resource type="AudioStream" uid="uid://brmsxxpg7x064" path="res://sounds/select.ogg" id="6_b28kf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2qvr"]
+bg_color = Color(0.0434, 0.06272, 0.14, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcrle"]
+bg_color = Color(0.127821, 0.121282, 0.357084, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="playerselector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f3c7r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.002, 0, 0.06, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 51.0
+offset_top = 28.0
+offset_right = 51.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.919999)
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2qvr")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 38.0
+offset_right = 218.0
+offset_bottom = 97.0
+scale = Vector2(0.630376, 0.630747)
+theme_override_fonts/font = ExtResource("1_v3p8n")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = ExtResource("3_jcrle")
+theme_override_styles/disabled = ExtResource("3_jcrle")
+theme_override_styles/hover_pressed = ExtResource("3_jcrle")
+theme_override_styles/hover = ExtResource("3_jcrle")
+theme_override_styles/pressed = ExtResource("3_jcrle")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jcrle")
+text = "Regresar"
+
+[node name="Continue" type="Button" parent="."]
+layout_mode = 0
+offset_left = 959.0
+offset_top = 580.0
+offset_right = 1111.0
+offset_bottom = 639.0
+scale = Vector2(0.630376, 0.630747)
+theme_override_fonts/font = ExtResource("1_v3p8n")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = ExtResource("3_jcrle")
+theme_override_styles/disabled = ExtResource("3_jcrle")
+theme_override_styles/hover_pressed = ExtResource("3_jcrle")
+theme_override_styles/hover = ExtResource("3_jcrle")
+theme_override_styles/pressed = ExtResource("3_jcrle")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jcrle")
+text = "Continuar"
+
+[node name="text_container" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 45.0
+offset_right = 750.0
+offset_bottom = 85.0
+theme_override_constants/separation = 376
+
+[node name="text" type="Label" parent="text_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_v3p8n")
+theme_override_font_sizes/font_size = 30
+text = "JUGADOR 1"
+
+[node name="text2" type="Label" parent="text_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_v3p8n")
+theme_override_font_sizes/font_size = 30
+text = "JUGADOR 2"
+
+[node name="tplayer0" type="Sprite2D" parent="."]
+position = Vector2(302, 276)
+scale = Vector2(0.3383, 0.362832)
+texture = ExtResource("5_bm3xa")
+
+[node name="tplayer1" type="Sprite2D" parent="."]
+self_modulate = Color(0.32, 0.592, 1, 1)
+position = Vector2(835, 282)
+scale = Vector2(0.387191, 0.411237)
+texture = ExtResource("5_bm3xa")
+
+[node name="card0" type="Sprite2D" parent="."]
+position = Vector2(306.579, 325.248)
+scale = Vector2(5.68947, 6.10205)
+texture = ExtResource("1_s2qvr")
+
+[node name="card1" type="Sprite2D" parent="."]
+position = Vector2(834.579, 326.248)
+scale = Vector2(6.02213, 6.13119)
+texture = ExtResource("1_s2qvr")
+
+[node name="button_container" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.507
+anchor_right = 0.507
+anchor_bottom = 1.0
+offset_left = -502.064
+offset_top = 87.0
+offset_right = -328.064
+offset_bottom = -465.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.68947, 5.02205)
+
+[node name="activate0" type="Button" parent="button_container"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_styles/focus = ExtResource("3_jcrle")
+theme_override_styles/disabled = ExtResource("3_jcrle")
+theme_override_styles/hover_pressed = ExtResource("3_jcrle")
+theme_override_styles/hover = ExtResource("3_jcrle")
+theme_override_styles/pressed = ExtResource("3_jcrle")
+theme_override_styles/normal = ExtResource("3_jcrle")
+text = "HHHHHHH"
+
+[node name="activate1" type="Button" parent="button_container"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_styles/focus = ExtResource("3_jcrle")
+theme_override_styles/disabled = ExtResource("3_jcrle")
+theme_override_styles/hover_pressed = ExtResource("3_jcrle")
+theme_override_styles/hover = ExtResource("3_jcrle")
+theme_override_styles/pressed = ExtResource("3_jcrle")
+theme_override_styles/normal = ExtResource("3_jcrle")
+text = "HHHHHHH"
+
+[node name="back" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qhdkc")
+bus = &"sfx"
+
+[node name="error" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6vnrq")
+bus = &"sfx"
+
+[node name="select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_b28kf")
+bus = &"sfx"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="button_container/activate0" to="." method="_on_player_0_pressed"]
+[connection signal="pressed" from="button_container/activate1" to="." method="_on_player_1_pressed"]

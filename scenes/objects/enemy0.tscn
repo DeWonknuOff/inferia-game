@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmlbfdfe0brrp"]
+
+[ext_resource type="Script" uid="uid://dj1v83j0reedx" path="res://scripts/objects/enemy_0.gd" id="1_w17sx"]
+[ext_resource type="Texture2D" uid="uid://c88on821j3fd7" path="res://sprites/objects/enemy0.png" id="1_yirhd"]
+[ext_resource type="PackedScene" uid="uid://dd4tgb7g0qg0s" path="res://scenes/objects/greenparticle.tscn" id="2_h8ej7"]
+[ext_resource type="Script" uid="uid://dfspkmethfpit" path="res://scripts/objects/entity0hitbox.gd" id="3_oj1rj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w17sx"]
+radius = 15.4762
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oj1rj"]
+radius = 8.0
+
+[node name="enemy" type="Node2D"]
+scale = Vector2(1.64, 1.64)
+script = ExtResource("1_w17sx")
+SPEED = 2.5
+
+[node name="particle" parent="." instance=ExtResource("2_h8ej7")]
+position = Vector2(-9.7561, 8.53659)
+
+[node name="particle2" parent="." instance=ExtResource("2_h8ej7")]
+position = Vector2(11.5854, 9.14634)
+
+[node name="Enemy0" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(1.68, 1.68)
+texture = ExtResource("1_yirhd")
+
+[node name="entityhitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_oj1rj")
+
+[node name="hitbox" type="CollisionShape2D" parent="entityhitbox"]
+scale = Vector2(0.84, 0.84)
+shape = SubResource("CircleShape2D_w17sx")
+
+[node name="entityhurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="hurtbox" type="CollisionShape2D" parent="entityhurtbox"]
+shape = SubResource("CircleShape2D_oj1rj")
+
+[connection signal="area_entered" from="entityhitbox" to="entityhitbox" method="_on_area_entered"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy8mql17yhxtl"]
+
+[ext_resource type="Texture2D" uid="uid://bsrwayjig74u8" path="res://sprites/backgrounds/background0.png" id="1_2h6t3"]
+[ext_resource type="Script" uid="uid://co4i6f2wicgc0" path="res://scripts/game/level_0.gd" id="1_43qtm"]
+[ext_resource type="Shader" uid="uid://dvcwlfonv4orn" path="res://scripts/shaders/movingbackground.gdshader" id="2_srts5"]
+[ext_resource type="PackedScene" uid="uid://cnwxb1t30jd3j" path="res://scenes/objects/player1.tscn" id="4_hbut1"]
+[ext_resource type="PackedScene" uid="uid://c02n00pc7eilk" path="res://scenes/objects/player2.tscn" id="5_ry65h"]
+[ext_resource type="PackedScene" uid="uid://y56mkt5jcfek" path="res://scenes/objects/spawner.tscn" id="6_d0grl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hbut1"]
+shader = ExtResource("2_srts5")
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_43qtm")
+
+[node name="background" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_hbut1")
+position = Vector2(576, 326)
+texture = ExtResource("1_2h6t3")
+
+[node name="player1" parent="." instance=ExtResource("4_hbut1")]
+position = Vector2(586, 560)
+
+[node name="player2" parent="." instance=ExtResource("5_ry65h")]
+visible = false
+position = Vector2(622, 559)
+
+[node name="spawner" parent="." instance=ExtResource("6_d0grl")]
+position = Vector2(599, -48)

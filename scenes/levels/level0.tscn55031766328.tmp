@@ -1,0 +1,100 @@
+[gd_scene load_steps=17 format=3 uid="uid://dy8mql17yhxtl"]
+
+[ext_resource type="Texture2D" uid="uid://bsrwayjig74u8" path="res://sprites/backgrounds/background0.png" id="1_2h6t3"]
+[ext_resource type="Script" uid="uid://co4i6f2wicgc0" path="res://scripts/game/level_0.gd" id="1_43qtm"]
+[ext_resource type="Shader" uid="uid://dvcwlfonv4orn" path="res://scripts/shaders/movingbackground.gdshader" id="2_srts5"]
+[ext_resource type="PackedScene" uid="uid://cnwxb1t30jd3j" path="res://scenes/objects/player1.tscn" id="4_hbut1"]
+[ext_resource type="PackedScene" uid="uid://c02n00pc7eilk" path="res://scenes/objects/player2.tscn" id="5_ry65h"]
+[ext_resource type="PackedScene" uid="uid://y56mkt5jcfek" path="res://scenes/objects/spawner.tscn" id="6_d0grl"]
+[ext_resource type="FontFile" uid="uid://dt32qtg1erj6q" path="res://fonts/perfectdos.ttf" id="7_1nvli"]
+[ext_resource type="PackedScene" uid="uid://cakag7lwab458" path="res://scenes/endscene.tscn" id="8_vals0"]
+[ext_resource type="AudioStream" uid="uid://brmsxxpg7x064" path="res://sounds/select.ogg" id="9_oem7y"]
+[ext_resource type="AudioStream" uid="uid://c0dqivc1n8khk" path="res://sounds/explosion1.ogg" id="10_d3ub6"]
+[ext_resource type="AudioStream" uid="uid://b2w7mad37wqhk" path="res://sounds/shoot0.ogg" id="11_7s2gi"]
+[ext_resource type="AudioStream" uid="uid://bxkmlad8527fr" path="res://sounds/try2.ogg" id="12_7s2gi"]
+[ext_resource type="AudioStream" uid="uid://bqaktbqajotd4" path="res://sounds/reload0.ogg" id="12_fj52k"]
+[ext_resource type="PackedScene" uid="uid://io1fmae113pf" path="res://scenes/optionsingame.tscn" id="14_m6lg1"]
+[ext_resource type="Script" uid="uid://dfdkhtnq7py3q" path="res://scripts/menu/optionsingame.gd" id="15_3asx1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hbut1"]
+shader = ExtResource("2_srts5")
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_43qtm")
+
+[node name="background" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_hbut1")
+position = Vector2(576, 326)
+texture = ExtResource("1_2h6t3")
+
+[node name="player1" parent="." instance=ExtResource("4_hbut1")]
+position = Vector2(578, 566)
+
+[node name="player2" parent="." instance=ExtResource("5_ry65h")]
+position = Vector2(577, 806)
+
+[node name="endscene" parent="." instance=ExtResource("8_vals0")]
+visible = false
+position = Vector2(21, 14)
+
+[node name="game_obj" type="Node2D" parent="."]
+
+[node name="score" type="Label" parent="game_obj"]
+offset_left = 8.0
+offset_top = 600.0
+offset_right = 59.0
+offset_bottom = 642.0
+theme_override_fonts/font = ExtResource("7_1nvli")
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="spawner" parent="game_obj" instance=ExtResource("6_d0grl")]
+position = Vector2(600, -35)
+
+[node name="spawner2" parent="game_obj" instance=ExtResource("6_d0grl")]
+position = Vector2(600, -35)
+
+[node name="spawner3" parent="game_obj" instance=ExtResource("6_d0grl")]
+position = Vector2(600, -35)
+
+[node name="sound_manager" type="Node" parent="."]
+
+[node name="select" type="AudioStreamPlayer" parent="sound_manager"]
+stream = ExtResource("9_oem7y")
+bus = &"sfx"
+
+[node name="explosion" type="AudioStreamPlayer" parent="sound_manager"]
+stream = ExtResource("10_d3ub6")
+bus = &"sfx"
+
+[node name="shoot" type="AudioStreamPlayer" parent="sound_manager"]
+stream = ExtResource("11_7s2gi")
+bus = &"sfx"
+
+[node name="resetbeam" type="AudioStreamPlayer" parent="sound_manager"]
+stream = ExtResource("12_fj52k")
+bus = &"sfx"
+
+[node name="shootbeam" type="AudioStreamPlayer" parent="sound_manager"]
+stream = ExtResource("12_7s2gi")
+mix_target = 1
+bus = &"sfx"
+
+[node name="optionsingame" parent="." instance=ExtResource("14_m6lg1")]
+visible = false
+offset_left = 586.0
+offset_top = 305.0
+offset_right = 586.0
+offset_bottom = 305.0
+script = ExtResource("15_3asx1")
+
+[node name="options" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 78.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("7_1nvli")
+text = "Options"
+
+[connection signal="pressed" from="options" to="." method="_on_options_pressed"]

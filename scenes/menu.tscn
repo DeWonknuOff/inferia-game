@@ -1,0 +1,172 @@
+[gd_scene load_steps=17 format=3 uid="uid://cff6kb51vpm2p"]
+
+[ext_resource type="Script" uid="uid://djgy7v0e3kj1d" path="res://scripts/menu/main.gd" id="1_con2f"]
+[ext_resource type="StyleBox" uid="uid://b2fw671hpf0e" path="res://styles/invisible_style.tres" id="3_4ytvr"]
+[ext_resource type="FontFile" uid="uid://dt32qtg1erj6q" path="res://fonts/perfectdos.ttf" id="3_mhnvy"]
+[ext_resource type="PackedScene" uid="uid://dolihcu1vpuqp" path="res://scenes/objects/planet.tscn" id="4_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://cbeww74efde8x" path="res://sprites/objects/asteroid2.png" id="5_g3eks"]
+[ext_resource type="Texture2D" uid="uid://ntf034g4mxl6" path="res://sprites/objects/asteroid1.png" id="6_v86rl"]
+[ext_resource type="Texture2D" uid="uid://bk0pex2ltdxlq" path="res://sprites/objects/asteroid3.png" id="7_v86rl"]
+[ext_resource type="AudioStream" uid="uid://d1crm2r06d4vd" path="res://sounds/ambient.ogg" id="9_i6lef"]
+[ext_resource type="PackedScene" uid="uid://56ht50e8yvjd" path="res://scenes/options.tscn" id="10_70i5f"]
+[ext_resource type="AudioStream" uid="uid://brmsxxpg7x064" path="res://sounds/select.ogg" id="10_mj5lg"]
+[ext_resource type="PackedScene" uid="uid://b05vcjyemcn3o" path="res://scenes/objects/planet_2.tscn" id="11_mj5lg"]
+[ext_resource type="PackedScene" uid="uid://cmvxp70aqw7et" path="res://scenes/player_selection.tscn" id="12_ufwb2"]
+[ext_resource type="PackedScene" uid="uid://c3hgrr6x1ivce" path="res://scenes/exit.tscn" id="13_6cdou"]
+
+[sub_resource type="Animation" id="Animation_mhnvy"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_con2f"]
+resource_name = "rgb_colors"
+length = 8.0
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ytvr"]
+_data = {
+&"RESET": SubResource("Animation_mhnvy"),
+&"rgb_colors": SubResource("Animation_con2f")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_con2f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.002, 0, 0.06, 1)
+
+[node name="StarGenerator" type="Node2D" parent="."]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Objects"]
+anchors_preset = -1
+anchor_left = 0.286
+anchor_top = 0.118
+anchor_right = 0.286
+anchor_bottom = 0.118
+offset_left = 234.0
+offset_top = 56.0
+offset_right = 431.0
+offset_bottom = 107.0
+theme_override_fonts/font = ExtResource("3_mhnvy")
+theme_override_font_sizes/font_size = 50
+text = "INFERIA"
+
+[node name="Asteroid2" type="Sprite2D" parent="Objects"]
+position = Vector2(1078, 203)
+scale = Vector2(0.857143, 0.857143)
+texture = ExtResource("5_g3eks")
+
+[node name="Asteroid1" type="Sprite2D" parent="Objects"]
+position = Vector2(1017, 434)
+scale = Vector2(0.702703, 0.702703)
+texture = ExtResource("6_v86rl")
+
+[node name="Asteroid3" type="Sprite2D" parent="Objects"]
+position = Vector2(166, 551)
+texture = ExtResource("7_v86rl")
+
+[node name="planet" parent="Objects" instance=ExtResource("4_mhnvy")]
+position = Vector2(325, 328)
+
+[node name="planet2" parent="Objects" instance=ExtResource("11_mj5lg")]
+position = Vector2(1062, 84)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -568.0
+offset_top = -156.5
+offset_bottom = 156.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 0.888, 0.72, 1)
+theme_override_colors/font_hover_color = Color(1, 0.888, 0.72, 1)
+theme_override_colors/font_color = Color(1, 0.888, 0.72, 1)
+theme_override_fonts/font = ExtResource("3_mhnvy")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/hover = ExtResource("3_4ytvr")
+theme_override_styles/pressed = ExtResource("3_4ytvr")
+theme_override_styles/normal = ExtResource("3_4ytvr")
+text = "JUGAR"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 0.888, 0.72, 1)
+theme_override_colors/font_hover_color = Color(1, 0.888, 0.72, 1)
+theme_override_colors/font_color = Color(1, 0.888, 0.72, 1)
+theme_override_fonts/font = ExtResource("3_mhnvy")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/hover = ExtResource("3_4ytvr")
+theme_override_styles/pressed = ExtResource("3_4ytvr")
+theme_override_styles/normal = ExtResource("3_4ytvr")
+text = "OPCIONES"
+
+[node name="exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 0.888, 0.72, 1)
+theme_override_colors/font_hover_color = Color(1, 0.888, 0.72, 1)
+theme_override_colors/font_color = Color(1, 0.888, 0.72, 1)
+theme_override_fonts/font = ExtResource("3_mhnvy")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/hover = ExtResource("3_4ytvr")
+theme_override_styles/pressed = ExtResource("3_4ytvr")
+theme_override_styles/normal = ExtResource("3_4ytvr")
+text = "SALIR"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4ytvr")
+}
+autoplay = "rgb_colors"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="ambientmusic" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("9_i6lef")
+autoplay = true
+bus = &"music"
+
+[node name="select" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("10_mj5lg")
+bus = &"sfx"
+
+[node name="options" parent="." instance=ExtResource("10_70i5f")]
+visible = false
+layout_mode = 1
+
+[node name="playerselector" parent="." instance=ExtResource("12_ufwb2")]
+visible = false
+layout_mode = 1
+offset_left = -1.0
+offset_top = 5.0
+offset_right = -1.0
+offset_bottom = 5.0
+
+[node name="exit" parent="." instance=ExtResource("13_6cdou")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

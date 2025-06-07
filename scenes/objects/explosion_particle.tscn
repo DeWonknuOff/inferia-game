@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://lgtu1wualrs2"]
+
+[ext_resource type="Script" uid="uid://bflk88qbt5jgj" path="res://scripts/objects/explosion_particle.gd" id="1_30ki3"]
+[ext_resource type="Texture2D" uid="uid://deaqxr1kmqrk0" path="res://sprites/effects/Explosion_Medium.png" id="2_y6d1u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhjro"]
+atlas = ExtResource("2_y6d1u")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk5on"]
+atlas = ExtResource("2_y6d1u")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjup5"]
+atlas = ExtResource("2_y6d1u")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfofo"]
+atlas = ExtResource("2_y6d1u")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khlvm"]
+atlas = ExtResource("2_y6d1u")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fw1q"]
+atlas = ExtResource("2_y6d1u")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evca4"]
+atlas = ExtResource("2_y6d1u")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leion"]
+atlas = ExtResource("2_y6d1u")
+region = Rect2(280, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0soh"]
+atlas = ExtResource("2_y6d1u")
+region = Rect2(320, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7bnh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhjro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk5on")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjup5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfofo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khlvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fw1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evca4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leion")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0soh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_30ki3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.72, 1.72)
+sprite_frames = SubResource("SpriteFrames_7bnh2")
+autoplay = "default"
+frame_progress = 0.869257

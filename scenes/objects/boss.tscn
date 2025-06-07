@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb47y4ys13kyd"]
+
+[ext_resource type="Script" uid="uid://dwtqjufmkae6t" path="res://scenes/objects/boss.gd" id="1_14dge"]
+[ext_resource type="PackedScene" uid="uid://c2k5evp7b5rcn" path="res://scenes/objects/redparticle.tscn" id="2_14dge"]
+[ext_resource type="Texture2D" uid="uid://bqder5llyaq34" path="res://sprites/objects/boss.png" id="3_4nwq5"]
+[ext_resource type="Script" uid="uid://dfspkmethfpit" path="res://scripts/objects/entity0hitbox.gd" id="4_3pknu"]
+[ext_resource type="AudioStream" uid="uid://bxkmlad8527fr" path="res://sounds/try2.ogg" id="5_4nwq5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w17sx"]
+radius = 15.4762
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oj1rj"]
+radius = 8.0
+
+[node name="boss" type="Node2D"]
+scale = Vector2(1.64, 1.64)
+script = ExtResource("1_14dge")
+SPEED = 1.0
+
+[node name="particle" parent="." instance=ExtResource("2_14dge")]
+
+[node name="particle2" parent="." instance=ExtResource("2_14dge")]
+position = Vector2(-1.21951, 23.7805)
+
+[node name="particle3" parent="." instance=ExtResource("2_14dge")]
+position = Vector2(1.82927, -1.82927)
+
+[node name="Enemy0" type="Sprite2D" parent="."]
+position = Vector2(0.609756, -10.9756)
+scale = Vector2(2.535, 2.535)
+texture = ExtResource("3_4nwq5")
+
+[node name="entityhitbox" type="Area2D" parent="."]
+position = Vector2(0, -6.70732)
+scale = Vector2(0.341463, 1)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_3pknu")
+
+[node name="hitbox" type="CollisionShape2D" parent="entityhitbox"]
+scale = Vector2(0.84, 0.84)
+shape = SubResource("CircleShape2D_w17sx")
+
+[node name="entityhurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="hurtbox" type="CollisionShape2D" parent="entityhurtbox"]
+shape = SubResource("CircleShape2D_oj1rj")
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4nwq5")
+bus = &"sfx"
+
+[connection signal="area_entered" from="entityhitbox" to="entityhitbox" method="_on_area_entered"]
